@@ -10,7 +10,7 @@
         echo 'She said, "How are you?"<br>';
         echo "I'm just ducky.<br>";
         echo "She said, \"How are you?\"<br>";
-        echo 'I\'m just ducky.';
+        echo 'I\'m just ducky.<br>';
         
         echo "This was generated using PHP!";
 	?>

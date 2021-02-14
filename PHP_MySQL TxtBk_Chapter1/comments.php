@@ -12,6 +12,13 @@
         # This script does nothing much
         
         echo '<p>This is a line of text.<br>This is another line of text</p>';
+        
+        /*
+         * echo 'This line will not be exeucuted.';
+         */
+        
+        echo "<p>Now I'm done.</p>";
+        // End of PHP code.
 	?>
     </body>
 </html>

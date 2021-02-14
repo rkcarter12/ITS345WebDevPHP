@@ -14,7 +14,7 @@
         $total = $total + ($total * $taxrate);
         $total = number_format($total,2);
         
-        echo '<p>You are purchasing <strong>'.$quantity.'</strong> widget(s) at a cost of <strong>$'.$price.'</strong> each. With tax, the total comes to <strong$'.$total.'</strong>.</p.>'
+        echo '<p>You are purchasing <strong>'.$quantity.'</strong> widget(s) at a cost of <strong>$'.$price.'</strong> each. With tax, the total comes to <strong>$'.$total.'</strong>.</p.>'
 	?>
     </body>
 </html>

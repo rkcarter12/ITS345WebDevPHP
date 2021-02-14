@@ -11,6 +11,8 @@
         $server = $_SERVER['SERVER_SOFTWARE']; // this is the web application on the server that's running PHP
         
         echo "<p>You are running the file:<br> /><strong>$file</strong>.</p>\n";
+        echo "<p>You are viewing this page using:<br><strong>$user</strong></p>\n";
+        echo "<p>This server is running:<br><strong>$server</strong></p>\n";
 	?>
     </body>
 </html>

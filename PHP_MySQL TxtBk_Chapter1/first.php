@@ -7,7 +7,12 @@
     <body>
     <p>
     <?php
-        echo 'She said, "How are you?"';
+        echo 'She said, "How are you?"<br>';
+        echo "I'm just ducky.<br>";
+        echo "She said, \"How are you?\"<br>";
+        echo 'I\'m just ducky.';
+        
+        echo "This was generated using PHP!";
 	?>
 	</p>
     </body>
