@@ -8,10 +8,11 @@
     <!--  Script 1.2 - first.php -->
     <p>This is standard HTML.</p>
     <?php
-    echo "She said, "How are you?"";
-    echo 'I'm just ducky.';
+    /*// echo "She said, "How are you?"";
+    // echo 'I'm just ducky.';
 
     echo 'She said, "How are you?"';
+    */
 	?>
     </body>
 </html>
