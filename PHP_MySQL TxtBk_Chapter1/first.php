@@ -2,13 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>Chapter 1 Exercises</title>
 </head>
     <body>
     <p>
     <?php
-        echo "Hello World!";
-        mysqli_connect('localhost','rkcarter','zetaNU766*tke','temp');
+        echo 'She said, "How are you?"';
 	?>
 	</p>
     </body>
