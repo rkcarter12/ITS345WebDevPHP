@@ -17,7 +17,7 @@
     
     
     $numberRange = [
-        array(0,10),
+        array(0,10,1.5,6.2378,2648.5698325,1000,1454092,11),
         array(48,88,-3,-5,-1047,-40,-72,'string value','other'),
         array(1000,10000),
     ]; // sample arrays for measuring the median
