@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Jason's Initial Post</title>
+<title>Jerry's Initial Post</title>
 </head>
     <body>
     <?php
@@ -16,23 +16,19 @@
         die('Could not connect to MySQL: ' .mysqli_connect_error() ); // establish the connection with MySQL
         mysqli_set_charset($dbc, 'utf8');
         
-        $query =    "SELECT article, dealer, price
-                    FROM   shop
-                    WHERE  price=19.95";
+        $query =    "SELECT article, max(price) as Max_Price FROM shop GROUP BY article";
         
         if($results = mysqli_query($dbc,$query)) {
             if(mysqli_num_rows($results) > 0) {
                 echo "<table border=1>";
                 echo "<tr>";
-                    echo "<th>Article</th>";
-                    echo "<th>Dealer</th>";
-                    echo "<th>Price</th>";
+                echo "<th>article</th>";
+                echo "<th>Max_Price</th>";
                 echo "</tr>";
                 while($row = mysqli_fetch_array($results)) {
                     echo "<tr>";
-                        echo"<td>".$row['article']."</td>"; // match the sql field name to the table datum entry (case-sensitive)
-                        echo"<td>".$row['dealer']."</td>";
-                        echo"<td>".$row['price']."</td>";
+                    echo"<td>".$row['article']."</td>"; // match the sql field name to the table datum entry (case-sensitive)
+                    echo"<td>".$row['Max_Price']."</td>";
                     echo "</tr>";
                 } // end while statement to insert rows per record returned
                 echo "</table>";
@@ -44,7 +40,6 @@
         } // end if statement for successful connection and query execution
         
         mysqli_close($results);
-    
 	?>
     </body>
 </html>
