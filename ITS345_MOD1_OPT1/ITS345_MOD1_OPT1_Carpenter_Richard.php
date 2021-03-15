@@ -9,6 +9,12 @@
     <p>
     <?php
     
+    # Module 1 Critical Thinking Option #1
+    # Created 02/14/2021
+    # Created by Richard Carpenter
+    # This program swaps two string variables
+    
+    
     $first = 'doom';
     $second = 'mood';
     
