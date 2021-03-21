@@ -24,7 +24,7 @@
         mysqli_set_charset($dbc, 'utf8');
         
         // set the record size per page
-        $display = 10;
+        $display = 6;
         
         // Detremine how many pages there will be in the record set returned
         if (isset($_GET['p']) && is_numeric($_GET['p'])) {
@@ -34,7 +34,7 @@
         }
         
         // Find the count of unique records in the data being returned
-        $count = "SELECT COUNT(id) from table";
+        $count = "SELECT COUNT(id) from exchangerates";
         $r = @mysqli_query($dbc, $count);
         $row = @mysqli_fetch_array($r, MYSQLI_NUM);
         $records = $row[0];
@@ -54,57 +54,61 @@
         }
         
         // This is the 50 or so records to be returned from the db and displayed to the page
-        $query = "SELECT * from table LIMIT $start, $display";
+        $query = "SELECT * from exchangerates LIMIT $start, $display";
         $r = @mysqli_query($dbc, $query);
         
-        -------------------------------------------------------------------------------------
-        // Set the output for the page
+
+        
+        // Set the output for the page starting with the basic table and headers
         
         echo '<table>
             <thead>
             <tr>
-                <th>Column1</th>
-                <th>Column2</th>
-                <th>Column3</th>
-                <th>Column4</th>
+                <th>ID</th>
+                <th>Effective Date</th>
+                <th>Base Currency</th>
+                <th>Target Currency</th>
+                <th>Rate</th>
             </tr>
             </thead>
             <tbody>';
         
+        // Alternate the background shading to make it easier to read one row at a time as the while loop displays the records from the db
         $bg = 'eeeeee';
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
             $bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee');
-        }
-        
-        echo '<tr bgcolor = "' .$bg. '">
-            <td>'.$row['column1'].'</td>
-            <td>'.$row['column2'].'</td>
-            <td>'.$row['column3'].'</td>
-            <td>'.$row['column4'].'</td>
-        </tr>';
+            
+            echo '<tr bgcolor="'.$bg.'">
+                <td>'.$row['id'].'</td>
+                <td>'.$row['EffectiveDate'].'</td>
+                <td>'.$row['BaseCurrency'].'</td>
+                <td>'.$row['TargetCurrency'].'</td>
+                <td>'.$row['Rate'].'</td>
+            </tr>';
+        }// end while loop 
         
         echo '</tbody></table>';
         mysqli_free_result($r);
         mysqli_close($dbc);
         
+        // Includes the Previous and Next buttons as an alternative to directly clicking a page number
         if ($pages > 1) {
             echo '<br><p>';
             $current_page = ($start/$display) + 1;
             if($current_page != 1) {
-                echo '<a href="view_users.php?s='.($start - $display).'&p='.$pages.'">Prevous</a>';
+                echo '<a href="ITS345_MOD6_OPT1_Carpenter_Richard.php?s='.($start - $display).'&p='.$pages.'">Previous</a> ';
             }
             for ($i=1; $i <= $pages; $i++) {
                 if($i != $current_page) {
-                    echo '<a href="view_users.php?s='.(($display*($i-1))).'&p='.$pages.'">'.$i.'</a>';
+                    echo '<a href="ITS345_MOD6_OPT1_Carpenter_Richard.php?s='.(($display*($i-1))).'&p='.$pages.'">'.$i.' </a>';
                 } else {
                     echo $i.' ';
                 }
             } //end for loop
             
             if ($current_page != $pages) {
-                echo '<a href="view_users.php?s='.($start + $display).'&p='.$pages.'">Next</a>';
-            }
-            
+                echo '<a href="ITS345_MOD6_OPT1_Carpenter_Richard.php?s=' . ($start + $display).'&p='.$pages.'">Next</a>';
+            } 
             echo'</p>';
         } // end if statement
 	?>
