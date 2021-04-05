@@ -20,28 +20,13 @@
         <option value="Engineering">Engineering</option>
     </select></label></p>
     </fieldset>
+  
+    
     <p align="center"><input type="submit" name="submit" value="Submit User Information"></p>
+    <p align="center"><input type="submit" name="save" value="Save"></p>
+    <p align="center"><input type="submit" name="display" value="Display All"></p>
+    
     </form>
-    
-    
-    <?php # Program to return at least 50 rows from MySQL and display them on web page with pagination
-    
-    # Module 8 Portfolio Project: Option #1
-    # Created 04/02/2021
-    # Created by Richard Carpenter
-    # This program will capture user information in a web form, provide a way to submit and insert the record into the data, and finally provide a way to display all user information back to a web page
-    
-        define('username', 'root');
-        define('password', 'root');
-        define('hostname', 'localhost:8889');
-        define('db_name', 'sys');
-        
-        //set the connection to MySQL
-        $dbc = mysqli_connect(hostname,username,password,db_name)
-        OR
-        die('Could not connect to MySQL: ' .mysqli_connect_error() ); // establish the connection with MySQL
-        mysqli_set_charset($dbc, 'utf8');
-        
-	?>
+
     </body>
 </html>
